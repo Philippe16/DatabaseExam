@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.skinport.com"],
+    domains: [
+      "cdn.skinport.com",
+      "community.cloudflare.steamstatic.com",
+      "community.akamai.steamstatic.com",
+    ],
   },
 };
 
