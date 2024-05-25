@@ -10,7 +10,7 @@ export async function GET(
   try {
     const db = await pool.getConnection();
 
-    const query = "select * from weapon where id = ?";
+    const query = "select * from weapon where name = ?";
     const [rows] = await db.execute(query, [slug]);
     db.release();
 

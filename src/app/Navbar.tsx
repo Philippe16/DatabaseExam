@@ -51,10 +51,19 @@ const Navbar = () => {
             </div>
           </Link>
           <div className="flex items-center flex-row gap-5 text-gray-100 ">
-            <button className="uppercase">Log in</button>
-            <button className="bg-[#fa421d] rounded-sm flex items-center justify-center relative h-[35px] px-[17px] font-bold uppercase">
-              Sign up
-            </button>
+            <Link
+              href={"/cart"}
+              className="bg-[#48a9cb] text-[14px] font-[700] hover:bg-[#367e98] rounded-sm flex items-center justify-between relative h-[35px] w-[90px] px-5 uppercase"
+            >
+              <Image
+                src={"/cart-outline.svg"}
+                width={30}
+                height={30}
+                alt="cart"
+                className="invert"
+              />
+              <span>0</span>
+            </Link>
           </div>
         </div>
       </div>
