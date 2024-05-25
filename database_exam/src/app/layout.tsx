@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "bg-[#1d2021] px-[40px]")}>
         <div className="flex flex-col">
           <Navbar />
-          <div className="py-20">{children}</div>
+          <div className="py-[130px]">{children}</div>
         </div>
       </body>
     </html>

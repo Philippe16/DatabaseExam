@@ -1,9 +1,7 @@
-export interface Skins {
+export interface Skin {
+  id: number;
   name: string;
   src: string;
-  min_price: string;
-  max_price: string;
-  st_min_price: string;
-  st_max_price: string;
-  weapon: string;
+  price: string;
+  weapon_id: number;
 }

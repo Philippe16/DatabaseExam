@@ -5,6 +5,7 @@ const nextConfig = {
       "cdn.skinport.com",
       "community.cloudflare.steamstatic.com",
       "community.akamai.steamstatic.com",
+      "cdn.csgoskins.gg",
     ],
   },
 };

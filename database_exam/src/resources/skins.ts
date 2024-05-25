@@ -1,6 +1,4 @@
-import { Skins } from "@/types/skins.t";
-
-export const skins: Skins[] = [
+export const skins = [
   {
     "name": "3rd Commando Company",
     "src":

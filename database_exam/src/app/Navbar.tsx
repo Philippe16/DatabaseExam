@@ -2,9 +2,10 @@
 
 import { TriangleDownIcon, TriangleUpIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
-import { weapons } from "@/resources/weapon";
 import React from "react";
 import Link from "next/link";
+import { Weapon } from "@/types/weapon.t";
+import axios from "axios";
 
 type MenuName =
   | "Knives"
@@ -18,10 +19,21 @@ type MenuName =
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState<MenuName>(null);
+  const [weapons, setWeapons] = React.useState<Weapon[]>([]);
 
   const handleMenuClick = (menu: MenuName) => {
     setOpenMenu((prevMenu) => (prevMenu === menu ? null : menu));
   };
+
+  React.useEffect(() => {
+    const fetchWeapons = async () => {
+      const res = await axios.get<Weapon[]>(
+        `http://localhost:3000/api/weapons/`
+      );
+      setWeapons(res.data);
+    };
+    fetchWeapons();
+  }, []);
 
   return (
     <div className="left-0 mx-auto px-[40px] fixed top-0 translate-z-0 w-full z-50">
@@ -54,43 +66,43 @@ const Navbar = () => {
           <div className="flex flex-row w-full px-[40px]">
             <HeaderMenu
               title="Knives"
-              weapon={weapons.Knives}
+              weapon={weapons.filter((item) => item.type === "Knives")}
               isOpen={openMenu === "Knives"}
               onClick={() => handleMenuClick("Knives")}
             />
             <HeaderMenu
               title="Gloves"
-              weapon={weapons.Gloves}
+              weapon={weapons.filter((item) => item.type === "Gloves")}
               isOpen={openMenu === "Gloves"}
               onClick={() => handleMenuClick("Gloves")}
             />
             <HeaderMenu
               title="Rifles"
-              weapon={weapons.Rifles}
+              weapon={weapons.filter((item) => item.type === "Rifles")}
               isOpen={openMenu === "Rifles"}
               onClick={() => handleMenuClick("Rifles")}
             />
             <HeaderMenu
               title="Snipers"
-              weapon={weapons.Sniper}
+              weapon={weapons.filter((item) => item.type === "Snipers")}
               isOpen={openMenu === "Snipers"}
               onClick={() => handleMenuClick("Snipers")}
             />
             <HeaderMenu
               title="Heavy"
-              weapon={weapons.Heavy}
+              weapon={weapons.filter((item) => item.type === "Heavy")}
               isOpen={openMenu === "Heavy"}
               onClick={() => handleMenuClick("Heavy")}
             />
             <HeaderMenu
               title="Smgs"
-              weapon={weapons.SMGs}
+              weapon={weapons.filter((item) => item.type === "SMGs")}
               isOpen={openMenu === "Smgs"}
               onClick={() => handleMenuClick("Smgs")}
             />
             <HeaderMenu
               title="Pistols"
-              weapon={weapons.Pistols}
+              weapon={weapons.filter((item) => item.type === "Pistols")}
               isOpen={openMenu === "Pistols"}
               onClick={() => handleMenuClick("Pistols")}
             />
@@ -131,7 +143,8 @@ const HeaderMenu = ({
             <div className="w-full flex flex-row divide-x-2 divide-[#242728]">
               {weapon.map((item) => (
                 <Link
-                  href={`/${item.type.toLowerCase()}/${item.name.toLowerCase()}/skins`}
+                  onClick={onClick}
+                  href={`/${item.type}/${item.name}/skins`}
                   key={item.name}
                 >
                   <div className="min-w-[200px] h-[3px] bg-[#fa421d]"></div>
