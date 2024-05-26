@@ -16,7 +16,6 @@ export default async function createOrder(request: NextRequest) {
     // Save the order to the database
     await newOrder.save();
 
-    // Return success response with status code 200
     return new NextResponse(JSON.stringify({
       message: "Order created successfully",
       order: newOrder
@@ -27,7 +26,6 @@ export default async function createOrder(request: NextRequest) {
       }
     });
   } catch (error) {
-    // Cast the error to string
     const errorMessage = error instanceof Error ? error.message : String(error);
     
     // Return error response with status code 500
