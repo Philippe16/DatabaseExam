@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
 import cn from "@/utils/cn";
-import CartProvider from "./context/cartContext";
+import CartProvider from "@/context/cartContext";
+import { Toaster } from "@/components/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             <div className="py-[130px]">{children}</div>
           </div>
         </CartProvider>
+        <Toaster />
       </body>
     </html>
   );

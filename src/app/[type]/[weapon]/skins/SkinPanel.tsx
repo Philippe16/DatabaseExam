@@ -1,16 +1,22 @@
 "use client";
 
-import { CartContext } from "@/app/context/cartContext";
+import { CartContext } from "@/context/cartContext";
+import { useToast } from "@/context/use-toast";
 import { Skin } from "@/types/skins.t";
 import Image from "next/image";
 import React from "react";
 
 const SkinPanel = ({ skin }: { skin: Skin }) => {
   const { dispatch } = React.useContext(CartContext);
+  const { toast } = useToast();
 
   const addItem = () => {
-    console.log("adding item");
     dispatch({ type: "ADD", payload: { items: [skin] } });
+    toast({
+      title: "Item added",
+      description: `${skin.name} has been added to your cart`,
+      className: "text-white",
+    });
   };
 
   return (

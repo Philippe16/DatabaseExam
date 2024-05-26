@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import Order, { IOrder } from "@/lib/mongodb/models/Order";
-import connectMongo from "@/lib/mongodb/config";
+import dbConnect from "@/lib/mongodb/config";
 
 // If ID is provided, fetch a specific order and if no ID is provided, fetch all orders
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ): Promise<NextResponse> {
-  await connectMongo();
+  await dbConnect();
   try {
     const orderId = params.id;
     const order: IOrder | null = await Order.findById(orderId);

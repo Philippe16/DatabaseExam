@@ -6,7 +6,7 @@ import React from "react";
 import Link from "next/link";
 import { Weapon } from "@/types/weapon.t";
 import axios from "axios";
-import { CartContext } from "./context/cartContext";
+import { CartContext } from "@/context/cartContext";
 
 type MenuName =
   | "Knives"

@@ -17,7 +17,11 @@ type RemoveAction = {
   payload: { id: number };
 };
 
-type CartAction = AddAction | RemoveAction;
+type ClearAction = {
+  type: "CLEAR";
+};
+
+type CartAction = AddAction | RemoveAction | ClearAction;
 
 type CartContextType = {
   items: Skin[];
@@ -39,6 +43,11 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.payload.id),
+      };
+    case "CLEAR":
+      return {
+        ...state,
+        items: [],
       };
     default:
       throw new Error("No case for that type");

@@ -1,9 +1,15 @@
 import mongoose from "mongoose";
 
-const connectMongo = async (): Promise<typeof mongoose> => {
-  if (mongoose.connection.readyState >= 1) return mongoose;
+const connection: { isConnected?: number } = {};
 
-  return mongoose.connect(process.env.MONGODB_URI as string);
-};
+async function dbConnect() {
+  if (connection.isConnected) {
+    return;
+  }
 
-export default connectMongo;
+  const db = await mongoose.connect(process.env.MONGODB_URI!);
+
+  connection.isConnected = db.connections[0].readyState;
+}
+
+export default dbConnect;

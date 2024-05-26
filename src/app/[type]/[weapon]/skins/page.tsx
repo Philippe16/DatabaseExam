@@ -1,4 +1,3 @@
-import { CartContext } from "@/app/context/cartContext";
 import { Skin } from "@/types/skins.t";
 import { Weapon } from "@/types/weapon.t";
 import axios from "axios";

@@ -19,6 +19,7 @@ const OrderSchema = new Schema({
   total: Number,
 });
 
-const Order = mongoose.model<IOrder>("Order", OrderSchema);
+const Order =
+  mongoose.models.Order || mongoose.model<IOrder>("Order", OrderSchema);
 
 export default Order;

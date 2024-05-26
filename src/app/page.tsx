@@ -13,28 +13,55 @@ const ShopPage = () => {
         />
       </div>
       <div className="h-screen text-gray-100 mt-10">
-        <h1 className="text-3xl font-bold">Top Rated Skins</h1>
-        <div className="flex flex-row divide-x-4 divide-[#242728] mt-5">
-          <SkinBox
-            src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlYG0kfbwNoTdn2xZ_Isn3uyTpN7zjlHt-ENsZjumcoCUJAZqaV_QqVa9xL3thsC-tZyYznIypGB8sly_Gx3i/360fx360f"
-            name="Karambit Fade"
-            stars={5}
-          />
-          <SkinBox
-            src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqPr1Ibndk1RX6cF0teXI8oThxlG1rRA5Z2rzdtfHeldqZ13U-QO-w-jth8C4upzOnyFguSUq4XndyUepwUYb00RQWkk/360fx360f"
-            name="Butterfly Marble Fade"
-            stars={4}
-          />
-          <SkinBox
-            src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
-            name="M4a4 Howl"
-            stars={3}
-          />
-          <SkinBox
-            src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
-            name="M4a4 Howl"
-            stars={2}
-          />
+        <div>
+          <h1 className="text-3xl font-bold">Top Rated Skins</h1>
+          <div className="flex flex-row divide-x-4 divide-[#242728] mt-5">
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlYG0kfbwNoTdn2xZ_Isn3uyTpN7zjlHt-ENsZjumcoCUJAZqaV_QqVa9xL3thsC-tZyYznIypGB8sly_Gx3i/360fx360f"
+              name="Karambit Fade"
+              stars={5}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqPr1Ibndk1RX6cF0teXI8oThxlG1rRA5Z2rzdtfHeldqZ13U-QO-w-jth8C4upzOnyFguSUq4XndyUepwUYb00RQWkk/360fx360f"
+              name="Butterfly Marble Fade"
+              stars={4}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
+              name="M4a4 Howl"
+              stars={3}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
+              name="M4a4 Howl"
+              stars={2}
+            />
+          </div>
+        </div>
+        <div className="mt-10">
+          <h1 className="text-3xl font-bold">Bottom Rated Skins</h1>
+          <div className="flex flex-row divide-x-4 divide-[#242728] mt-5">
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJlYG0kfbwNoTdn2xZ_Isn3uyTpN7zjlHt-ENsZjumcoCUJAZqaV_QqVa9xL3thsC-tZyYznIypGB8sly_Gx3i/360fx360f"
+              name="Karambit Fade"
+              stars={5}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqPr1Ibndk1RX6cF0teXI8oThxlG1rRA5Z2rzdtfHeldqZ13U-QO-w-jth8C4upzOnyFguSUq4XndyUepwUYb00RQWkk/360fx360f"
+              name="Butterfly Marble Fade"
+              stars={4}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
+              name="M4a4 Howl"
+              stars={3}
+            />
+            <SkinBox
+              src="https://community.akamai.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLPr7Vn35cppJy0r3A8NT02Qy1r0ZvZ2uiIILDdFA9ZwrSrle5ybvrgp676ZvKmiZ9-n51fIaZrsI/360fx360f"
+              name="M4a4 Howl"
+              stars={2}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -2,20 +2,41 @@
 
 import React from "react";
 import Image from "next/image";
-import { CartContext } from "../context/cartContext";
+import { CartContext } from "@/context/cartContext";
+import axios from "axios";
+import { useToast } from "@/context/use-toast";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
   const { dispatch, items } = React.useContext(CartContext);
+  const { toast } = useToast();
+  const router = useRouter();
 
   const totalCartPrice = items.reduce((total, item) => {
     const price = parseFloat(item.price);
     return total + (isNaN(price) ? 0 : price);
   }, 0);
 
-
-  const handleBuyNow = () => {
-    // Handle the buy now action
-    alert('Proceeding to checkout...');
+  const handleBuyNow = async () => {
+    const res = await axios.post("http://localhost:3000/api/orders", {
+      items: items,
+      total: totalCartPrice,
+    });
+    if (res.status === 200) {
+      dispatch({ type: "CLEAR" });
+      toast({
+        title: "Order placed",
+        description: "Your order has been placed",
+        className: "text-white",
+      });
+      router.push("/");
+    } else {
+      toast({
+        title: "Error",
+        description: "Something went wrong",
+        className: "text-white",
+      });
+    }
   };
 
   return (
@@ -30,7 +51,12 @@ const Cart = () => {
             >
               <div className="flex-shrink-0">
                 <div className="relative h-40 w-40">
-                  <Image src={item.src} layout="fill" objectFit="contain" alt={`image of ${item.name}`} />
+                  <Image
+                    src={item.src}
+                    layout="fill"
+                    objectFit="contain"
+                    alt={`image of ${item.name}`}
+                  />
                 </div>
               </div>
               <div className="flex flex-col flex-grow">
@@ -48,12 +74,16 @@ const Cart = () => {
             </div>
           ))}
           <div className="mt-5">
-            <span className="font-bold">Total Cart Price:</span> ${totalCartPrice.toFixed(2)}
+            <span className="font-bold">Total Cart Price:</span> $
+            {totalCartPrice.toFixed(2)}
           </div>
         </div>
       </div>
       <div className="w-full bg-[#48a9cb] hover:bg-[#367e98] h-10 rounded-lg flex justify-center items-center mt-6">
-        <button className="w-full h-full text-white" onClick={handleBuyNow}>
+        <button
+          className="w-full h-full text-white"
+          onClick={() => handleBuyNow()}
+        >
           Place order
         </button>
       </div>
@@ -62,4 +92,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

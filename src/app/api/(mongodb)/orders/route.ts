@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import Order, { IOrder } from "@/lib/mongodb/models/Order";
-import connectMongo from "@/lib/mongodb/config";
+import dbConnect from "@/lib/mongodb/config";
 import { Skin } from "@/types/skins.t";
 
 export async function GET(): Promise<NextResponse> {
-  await connectMongo();
+  await dbConnect();
   try {
     const orders: IOrder[] = await Order.find();
 
@@ -27,8 +27,7 @@ export async function GET(): Promise<NextResponse> {
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-  await connectMongo();
-
+  await dbConnect();
   try {
     const { items, total }: { items: Skin[]; total: number } = await req.json();
 
