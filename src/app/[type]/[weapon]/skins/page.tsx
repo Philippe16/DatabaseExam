@@ -1,7 +1,10 @@
+import { CartContext } from "@/app/context/cartContext";
 import { Skin } from "@/types/skins.t";
 import { Weapon } from "@/types/weapon.t";
 import axios from "axios";
 import Image from "next/image";
+import React from "react";
+import SkinPanel from "./SkinPanel";
 
 const WeaponSkins = async ({
   params,
@@ -33,11 +36,7 @@ const WeaponSkins = async ({
               {weapon.data[0].name} Skins
             </h1>
             <div className="text-center md:text-left text-gray-400 w-[600px]">
-              Browse and buy all Bayonet skins for CS2. Relatively unchanged in
-              its design since World War II, the bayonet still retains a place
-              in modern military strategy. Bayonet charges have continued to be
-              effective as recently as the second Gulf War and the war in
-              Afghanistan.
+              {weapon.data[0].description}
             </div>
           </div>
         </div>
@@ -48,25 +47,6 @@ const WeaponSkins = async ({
             <SkinPanel skin={skin} />
           </div>
         ))}
-      </div>
-    </div>
-  );
-};
-
-const SkinPanel = ({ skin }: { skin: Skin }) => {
-  return (
-    <div className="w-[300px] h-[300px] relative group cursor-pointer">
-      <div className="w-full h-full bg-[#33383a] flex py-10 items-center flex-col gap-5 transform translate-y-4 group-hover:translate-y-0 transition-transform ease-in-out duration-100">
-        <div className="w-full flex justify-center">{skin.name}</div>
-        <div className="flex justify-center items-center">
-          <div className="relative h-40 w-60 flex">
-            <Image src={skin.src} fill alt="image of skin" />
-          </div>
-        </div>
-        <div className="flex flex-col">${skin.price}</div>
-      </div>
-      <div className="w-full bg-[#48a9cb] hover:bg-[#367e98] h-10 rounded-b-lg flex justify-center items-center opacity-0 transform -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-transform ease-in-out duration-100">
-        Add to cart
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar";
 import cn from "@/utils/cn";
+import CartProvider from "./context/cartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "bg-[#1d2021] px-[40px]")}>
-        <div className="flex flex-col">
-          <Navbar />
-          <div className="py-[130px]">{children}</div>
-        </div>
+        <CartProvider>
+          <div className="flex flex-col">
+            <Navbar />
+            <div className="py-[130px]">{children}</div>
+          </div>
+        </CartProvider>
       </body>
     </html>
   );

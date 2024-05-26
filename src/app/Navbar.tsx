@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 import { Weapon } from "@/types/weapon.t";
 import axios from "axios";
+import { CartContext } from "./context/cartContext";
 
 type MenuName =
   | "Knives"
@@ -20,7 +21,7 @@ type MenuName =
 const Navbar = () => {
   const [openMenu, setOpenMenu] = React.useState<MenuName>(null);
   const [weapons, setWeapons] = React.useState<Weapon[]>([]);
-
+  const { items } = React.useContext(CartContext);
   const handleMenuClick = (menu: MenuName) => {
     setOpenMenu((prevMenu) => (prevMenu === menu ? null : menu));
   };
@@ -62,7 +63,7 @@ const Navbar = () => {
                 alt="cart"
                 className="invert"
               />
-              <span>0</span>
+              <span>{items.length}</span>
             </Link>
           </div>
         </div>
@@ -157,11 +158,11 @@ const HeaderMenu = ({
                   key={item.name}
                 >
                   <div className="min-w-[200px] h-[3px] bg-[#fa421d]"></div>
-                  <div className="bg-[#33383a] min-h-[200px] min-w-[200px] group cursor-pointer">
+                  <div className="bg-[#33383a] min-h-[200px] min-w-[200px] group cursor-pointer flex flex-col">
                     <div className="flex justify-center items-center w-full h-2/3">
                       <Image
                         src={item.src}
-                        width={120}
+                        width={130}
                         height={70}
                         alt="knive"
                       />
