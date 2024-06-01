@@ -1,0 +1,32 @@
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    environment:
+      - NEO4J_AUTH=neo4j/12345678
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./database_resources/neo4j:/var/lib/neo4j/import
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: csgo_database
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database_resources/mysql:/docker-entrypoint-initdb.d
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: csgo_database
+    ports:
+      - "27017:27017"

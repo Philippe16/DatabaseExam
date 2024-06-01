@@ -56,21 +56,23 @@ const ShopPage = async () => {
             </div>
           </div>
         )}
-        <div className="mt-10">
-          <h1 className="text-3xl font-bold">Top Rated Weapons By Skins</h1>
-          <div className="flex flex-row divide-x-4 divide-[#242728] mt-5">
-            {highestRatedWeapons.data.map((skin, index) => (
-              <SkinBox
-                key={skin.id}
-                src={skin.src}
-                name={skin.name}
-                stars={skin.rating}
-                ratingCount={skin.totalRatings}
-                index={index + 1}
-              />
-            ))}
+        {highestRatedWeapons.data.length > 0 && (
+          <div className="mt-10">
+            <h1 className="text-3xl font-bold">Top Rated Weapons By Skins</h1>
+            <div className="flex flex-row divide-x-4 divide-[#242728] mt-5">
+              {highestRatedWeapons.data.map((skin, index) => (
+                <SkinBox
+                  key={skin.id}
+                  src={skin.src}
+                  name={skin.name}
+                  stars={skin.rating}
+                  ratingCount={skin.totalRatings}
+                  index={index + 1}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

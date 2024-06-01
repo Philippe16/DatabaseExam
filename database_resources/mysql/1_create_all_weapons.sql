@@ -1,5 +1,3 @@
-USE cs2_weapons_skins;
-
 -- Create the weapon table
 CREATE TABLE IF NOT EXISTS weapon (
     id INT AUTO_INCREMENT PRIMARY KEY,
