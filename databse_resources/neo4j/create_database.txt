@@ -1,0 +1,31 @@
+//import weapons csv and create nodes
+LOAD CSV WITH HEADERS FROM 'file:///csgo_weapons.csv' AS row
+CREATE (:Weapon {
+    id: toInteger(row.id),
+    name: row.name,
+    type: row.type,
+    src: row.src,
+    description: row.description
+});
+
+//import skins csv and create nodes
+LOAD CSV WITH HEADERS FROM 'file:///csgo_skins.csv' AS row
+CREATE (:Skin {
+    id: toInteger(row.id),
+    name: row.name,
+    src: row.src,
+    price: toFloat(row.price),
+    weapon_id: toInteger(row.weapon_id)
+});
+
+
+//make relations between skins and weapons via weapon_name
+MATCH (w:Weapon), (s:Skin)
+WHERE w.id = s.weapon_id
+CREATE (s)-[:BELONGS_TO]->(w);
+
+
+//give skin two new variables for rating
+MATCH (s:Skin)
+SET s.rating = 0,
+    s.totalRatings = 0;

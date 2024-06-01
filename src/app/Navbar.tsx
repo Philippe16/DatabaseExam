@@ -42,10 +42,10 @@ const Navbar = () => {
         <div className="flex flex-row justify-between items-center py-5 w-full">
           <Link
             href={"/"}
-            className="flex flex-1 items-center gap-3 text-gray-100 cursor-pointer"
+            className="flex items-center gap-3 text-gray-100 w-auto cursor-pointer"
           >
             <div className="w-10 h-10 relative">
-              <Image className="rounded" src="/image.png" fill alt="logo" />
+              <Image className="rounded" src="/logo.png" fill alt="logo" />
             </div>
             <div>
               <h1>Counter Strike Shop</h1>
