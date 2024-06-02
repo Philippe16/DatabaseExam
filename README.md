@@ -15,6 +15,9 @@ The `public` folder includes static assets that are publicly accessible. This ma
 ### `src`
 The `src` folder holds the source code for the project. This is where the main application logic resides, including both frontend and backend code. The structure within this folder typically follows a standard web application architecture.
 
+#### `api`
+Contains server-side code for handling API requests. This includes routes, controllers, and any middleware necessary for processing and responding to client requests.
+
 #### `app`
 Contains the main application components and pages. This includes the Next.js application entry points, such as the main `pages` directory for routing.
 
@@ -35,6 +38,12 @@ Contains various utility functions that perform common tasks and operations used
 
 ### `.eslintrc.json`
 This is the configuration file for ESLint, a tool for identifying and fixing problems in JavaScript code. It defines the coding standards and rules enforced in the project.
+
+### `.gitignore`
+This file specifies which files and directories should be ignored by Git. Commonly ignored files include dependencies, build artifacts, and sensitive information.
+
+### `README.md`
+This file provides an overview of the project, including setup instructions, usage guidelines, and any other relevant information.
 
 ### `docker-compose.yml`
 The `docker-compose.yml` file defines the Docker services, networks, and volumes for the project. It simplifies the process of setting up and managing multi-container Docker applications.
