@@ -9,7 +9,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       MATCH (s:Skin)
       WHERE s.totalRatings > 0
       RETURN s
-      ORDER BY s.rating DESC
+      ORDER BY s.rating DESC, s.totalRatings DESC
       LIMIT 5
     `);
 

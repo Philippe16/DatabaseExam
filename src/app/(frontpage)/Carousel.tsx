@@ -30,27 +30,36 @@ const Carousel = () => {
       ref={emblaRef}
     >
       <div className="flex">
-        <div className="flex-[0_0_100%] min-w-0 relative h-[500px]">
+        <div className="flex-[0_0_100%] min-w-0 h-[500px]">
           <Image
             src={"/banner_1.webp"}
-            className="object-cover w-full"
-            fill
+            className="object-cover h-full w-auto block align-middle"
+            width={1920}
+            height={1080}
+            quality={100}
+            priority
             alt="banner image 1"
           />
         </div>
-        <div className="flex-[0_0_100%] min-w-0 relative h-[500px]">
+        <div className="flex-[0_0_100%] min-w-0 h-[500px]">
           <Image
             src={"/banner_2.webp"}
-            className="object-cover w-full"
-            fill
+            className="object-cover h-full w-auto block align-middle"
+            width={1920}
+            height={1080}
+            quality={100}
+            priority
             alt="banner image 1"
           />
         </div>
-        <div className="flex-[0_0_100%] min-w-0 relative h-[500px]">
+        <div className="flex-[0_0_100%] min-w-0 h-[500px]">
           <Image
             src={"/banner_3.webp"}
-            className="object-cover w-full"
-            fill
+            className="object-cover h-full w-auto block align-middle"
+            width={1920}
+            height={1080}
+            quality={100}
+            priority
             alt="banner image 1"
           />
         </div>

@@ -57,7 +57,7 @@ const Table = ({
                 <td className="py-3 pr-0">${order.total.toFixed(2)}</td>
                 <td className="py-3">10/20 - 24</td>
                 <td className="py-3">
-                  <button className="rounded-md px-4 py-3 text-blue-500 bg-blue-100 text-sm flex items-center justify-center">
+                  <button className="rounded-md px-4 py-3 cursor-default text-blue-500 bg-blue-100 text-sm flex items-center justify-center">
                     In Progress
                   </button>
                 </td>
