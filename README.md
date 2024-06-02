@@ -15,14 +15,26 @@ The `public` folder includes static assets that are publicly accessible. This ma
 ### `src`
 The `src` folder holds the source code for the project. This is where the main application logic resides, including both frontend and backend code. The structure within this folder typically follows a standard web application architecture.
 
+#### `app`
+Contains the main application components and pages. This includes the Next.js application entry points, such as the main `pages` directory for routing.
+
+#### `components`
+Holds reusable React components used throughout the application. Each component is typically self-contained with its own styles and logic.
+
+#### `context`
+Manages the React context providers, which are used for state management and sharing data across the application components.
+
+#### `lib`
+Includes utility functions and libraries that support the main application logic. This can include API clients, helper functions, and other general-purpose code.
+
+#### `types`
+Defines TypeScript type definitions for the project. This helps in maintaining type safety and consistency across the codebase.
+
+#### `utils`
+Contains various utility functions that perform common tasks and operations used in different parts of the application.
+
 ### `.eslintrc.json`
 This is the configuration file for ESLint, a tool for identifying and fixing problems in JavaScript code. It defines the coding standards and rules enforced in the project.
-
-### `.gitignore`
-This file specifies which files and directories should be ignored by Git. Commonly ignored files include dependencies, build artifacts, and sensitive information.
-
-### `README.md`
-This file provides an overview of the project, including setup instructions, usage guidelines, and any other relevant information.
 
 ### `docker-compose.yml`
 The `docker-compose.yml` file defines the Docker services, networks, and volumes for the project. It simplifies the process of setting up and managing multi-container Docker applications.
@@ -45,4 +57,3 @@ This configuration file specifies the compiler options for TypeScript, ensuring 
 ## Contributors
 - **Philippe16 (Jean André Philippe A. Suenson)**
 - **bentsen (Mikkel Bentsen)**
-
