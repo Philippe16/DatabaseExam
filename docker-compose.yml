@@ -1,14 +1,18 @@
+version: "3.8"
+
 services:
   neo4j:
     image: neo4j:latest
     container_name: neo4j
     environment:
       - NEO4J_AUTH=neo4j/12345678
+      - NEO4J_PLUGINS=["graph-data-science"]
     ports:
       - "7474:7474"
       - "7687:7687"
     volumes:
       - ./database_resources/neo4j:/var/lib/neo4j/import
+      - ./database_resources/neo4j/plugins:/plugins
 
   mysql:
     image: mysql:latest
