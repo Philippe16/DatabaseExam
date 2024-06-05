@@ -21,3 +21,14 @@ MERGE (s)-[:BELONGS_TO]->(w);
 MATCH (s:Skin)
 SET s.rating = 0,
     s.totalRatings = 0;
+
+// Create a Graph Projection
+CALL gds.graph.project(
+  'csgoGraph',
+  ['Weapon', 'Skin'],
+  {
+    BELONGS_TO: {
+      orientation: 'UNDIRECTED'
+    }
+  }
+);

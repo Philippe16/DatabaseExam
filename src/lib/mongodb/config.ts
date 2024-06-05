@@ -7,9 +7,19 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect(process.env.MONGODB_URI!);
+  try {
+    const db = await mongoose.connect(process.env.MONGODB_URI!);
 
-  connection.isConnected = db.connections[0].readyState;
+    connection.isConnected = db.connections[0].readyState;
+
+    if (connection.isConnected === 1) {
+      console.log("MongoDB connected successfully.");
+    } else {
+      console.error("MongoDB connection failed.");
+    }
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+  }
 }
 
 export default dbConnect;

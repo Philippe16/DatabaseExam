@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb/config";
-import mongoose from "mongoose";
 import Order from "@/lib/mongodb/models/Order";
 
 export async function GET(): Promise<NextResponse> {
@@ -8,32 +7,45 @@ export async function GET(): Promise<NextResponse> {
 
   const aggregationPipeline = [
     {
-      $unwind: "$items",
+      "$unwind": "$items", // Break apart the items array in each order
     },
     {
-      $group: {
-        _id: null,
-        totalOrders: { $sum: 1 },
-        totalQuantity: { $sum: 1 }, // Count each item once
-        totalRevenue: { $sum: { $toDouble: "$items.price" } },
-        averageOrderValue: { $avg: { $toDouble: "$total" } },
-        maxOrderValue: { $max: { $toDouble: "$total" } },
-        minOrderValue: { $min: { $toDouble: "$total" } },
-        uniqueCustomers: { $addToSet: "$_id" }, // Assuming customer ID is part of the order _id
-        uniqueProductsSold: { $addToSet: "$items.id" },
+      "$group": {
+        // Group by Order ID
+        "_id": "$_id",
+        "totalQuantity": { "$sum": 1 }, // Count each item once per order
+        "totalRevenue": { "$sum": { "$toDouble": "$items.price" } },
+        "orderTotal": { "$first": { "$toDouble": "$total" } },
+        "customerId": { "$first": "$_id" }, // Assuming _id is customer ID
+        "products": { "$addToSet": "$items.id" },
       },
     },
     {
-      $project: {
-        _id: 0,
-        totalOrders: 1,
-        totalQuantity: 1,
-        totalRevenue: 1,
-        averageOrderValue: 1,
-        maxOrderValue: 1,
-        minOrderValue: 1,
-        uniqueCustomers: { $size: "$uniqueCustomers" },
-        uniqueProductsSold: { $size: "$uniqueProductsSold" },
+      "$group": {
+        // Group All Orders Together
+        "_id": null,
+        "totalOrders": { "$sum": 1 },
+        "totalQuantity": { "$sum": "$totalQuantity" },
+        "totalRevenue": { "$sum": "$totalRevenue" },
+        "averageOrderValue": { "$avg": "$orderTotal" },
+        "maxOrderValue": { "$max": "$orderTotal" },
+        "minOrderValue": { "$min": "$orderTotal" },
+        "uniqueCustomers": { "$addToSet": "$customerId" },
+        "uniqueProductsSold": { "$addToSet": "$products" },
+      },
+    },
+    {
+      "$project": {
+        // output to include only the desired fields
+        "_id": 0,
+        "totalOrders": 1,
+        "totalQuantity": 1,
+        "totalRevenue": 1,
+        "averageOrderValue": 1,
+        "maxOrderValue": 1,
+        "minOrderValue": 1,
+        "uniqueCustomers": { "$size": "$uniqueCustomers" },
+        "uniqueProductsSold": { "$size": "$uniqueProductsSold" },
       },
     },
   ];

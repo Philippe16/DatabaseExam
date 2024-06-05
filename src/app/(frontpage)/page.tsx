@@ -129,7 +129,7 @@ const SkinBox = ({
       <div className="bg-[#33383a] h-[300px] w-[300px]">
         <div className="p-2 text-gray-500">{index}</div>
         <div className="flex justify-center items-center w-full h-[150px]">
-          <Image src={src} width={140} height={90} alt="knive" className="" />
+          <img src={src} width={140} height={90} alt="knive" className="" />
         </div>
         <div className="h-1/3 flex flex-col gap-2 items-center text-gray-100">
           <p>{name}</p>

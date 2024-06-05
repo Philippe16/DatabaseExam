@@ -43,12 +43,7 @@ const Table = ({
                   <div className="flex flex-row gap-5">
                     {order.items.map((item) => (
                       <div key={item.id} className="flex flex-col items-center">
-                        <Image
-                          src={item.src}
-                          width={50}
-                          height={50}
-                          alt="skin"
-                        />
+                        <img src={item.src} width={50} height={50} alt="skin" />
                         <p className="text-xs truncate w-[50px]">{item.name}</p>
                       </div>
                     ))}

@@ -2,7 +2,7 @@
 
 import { CartContext } from "@/context/cartContext";
 import { useToast } from "@/context/use-toast";
-import { Rating } from "@/types/rating.t";
+import { SkinRating } from "@/types/rating.t";
 import { Skin } from "@/types/skins.t";
 import { DotsVerticalIcon, StarFilledIcon } from "@radix-ui/react-icons";
 import axios from "axios";
@@ -34,7 +34,7 @@ const SkinPanel = ({ skin }: { skin: Skin }) => {
   };
 
   const handleClick = async (index: number) => {
-    const response = await axios.post<Rating>(
+    const response = await axios.post<SkinRating>(
       "http://localhost:3000/api/rate",
       {
         skin: skin,
@@ -70,7 +70,7 @@ const SkinPanel = ({ skin }: { skin: Skin }) => {
         <div className="w-full flex justify-center">{skin.name}</div>
         <div className="flex justify-center items-center">
           <div className="relative h-40 w-60 flex">
-            <Image src={skin.src} fill alt="image of skin" />
+            <img src={skin.src} alt="image of skin" />
           </div>
         </div>
         <div className="flex flex-col">${skin.price}</div>

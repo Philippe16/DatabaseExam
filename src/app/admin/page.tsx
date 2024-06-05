@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import axios from "axios";
 import { Order, OrderStats } from "@/types/order.t";
 import Table from "./Table";

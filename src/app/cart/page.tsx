@@ -51,12 +51,7 @@ const Cart = () => {
             >
               <div className="flex-shrink-0">
                 <div className="relative h-40 w-40">
-                  <Image
-                    src={item.src}
-                    layout="fill"
-                    objectFit="contain"
-                    alt={`image of ${item.name}`}
-                  />
+                  <img src={item.src} alt={`image of ${item.name}`} />
                 </div>
               </div>
               <div className="flex flex-col flex-grow">
